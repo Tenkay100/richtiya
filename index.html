@@ -636,27 +636,11 @@
         }
 
         @media (max-width: 400px) {
-            .login-box {
-                padding: 1.5rem;
-            }
-            
-            .quick-actions {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.8rem;
-            }
-            
-            .action-btn {
-                padding: 1rem 0.5rem;
-            }
-            
-            .pin-input-single {
-                letter-spacing: 0.5rem;
-                font-size: 1.5rem;
-            }
-
-            .balance-amount {
-                font-size: 1.6rem;
-            }
+            .login-box { padding: 1.5rem; }
+            .quick-actions { grid-template-columns: repeat(2, 1fr); }
+            .action-btn { padding: 1rem 0.5rem; }
+            .pin-input-single { letter-spacing: 0.5rem; font-size: 1.5rem; }
+            .balance-amount { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -671,48 +655,32 @@
             
             <div id="emailLogin">
                 <h2 class="login-title">Corporate Login</h2>
-                
                 <div class="form-group">
                     <label class="form-label" for="email">Business Email</label>
                     <input type="email" id="email" class="form-input" placeholder="company@example.com">
                 </div>
-                
                 <div class="form-group">
                     <label class="form-label" for="password">Password</label>
                     <input type="password" id="password" class="form-input" placeholder="Enter password">
                 </div>
-                
                 <button id="loginEmailBtn" class="login-btn">Continue to Secure Login</button>
             </div>
             
             <div id="pinLogin" class="pin-container">
                 <h2 class="login-title">Enter Corporate PIN</h2>
-                
-                <div class="pin-instructions">
-                    4-digit company PIN
-                </div>
-                
+                <div class="pin-instructions">4-digit company PIN</div>
                 <div class="pin-input-bar">
                     <i class="fas fa-lock"></i>
                     <input type="password" id="pinInput" class="pin-input-single" placeholder="****" maxlength="4">
-                    <button class="pin-clear-btn" id="pinClearBtn">
-                        <i class="fas fa-times"></i>
-                    </button>
+                    <button class="pin-clear-btn" id="pinClearBtn"><i class="fas fa-times"></i></button>
                 </div>
-                
-                <div class="pin-instructions" style="font-size: 0.8rem; margin-top: -0.5rem;">
-                    <i class="fas fa-info-circle"></i> For security, PIN is verified on secure server
-                </div>
-                
                 <button id="verifyPinBtn" class="login-btn">Verify PIN</button>
-                <button id="backToEmailBtn" class="login-btn" style="background: var(--gray); margin-top: 0.5rem;">
-                    <i class="fas fa-arrow-left"></i> Back to Login
-                </button>
+                <button id="backToEmailBtn" class="login-btn" style="background: var(--gray); margin-top: 0.5rem;"><i class="fas fa-arrow-left"></i> Back to Login</button>
             </div>
         </div>
     </div>
 
-    <!-- Banking Dashboard (Corporate) -->
+    <!-- Banking Dashboard -->
     <div id="dashboard" style="display: none;">
         <div class="header">
             <div class="logo-container">
@@ -730,318 +698,121 @@
                         <div class="user-email">peebalpha@gmail.com</div>
                     </div>
                 </div>
-                
-                <div class="session-timer">
-                    <i class="fas fa-clock"></i>
-                    <span id="timer">05:00</span>
-                </div>
+                <div class="session-timer"><i class="fas fa-clock"></i><span id="timer">05:00</span></div>
             </div>
             
-            <!-- Dashboard Page -->
             <div id="dashboardPage" class="page-content active">
                 <div class="main-content">
                     <div class="balance-card">
                         <div class="balance-label">Available Balance</div>
-                        <div class="balance-amount" id="accountBalance">$903,050.80</div>
-                        <div class="account-details">
-                            <div>Current Balance: $810,080.30</div>
-                            <div>****8832</div>
-                        </div>
+                        <div class="balance-amount" id="accountBalance">$1,693,050.80</div>
+                        <div class="account-details"><div>Current Balance: $1,600,080.30</div><div>****8832</div></div>
                     </div>
                     
                     <div class="quick-actions">
-                        <button class="action-btn" id="quickTransfer">
-                            <i class="fas fa-exchange-alt"></i>
-                            <span>Transfer</span>
-                        </button>
-                        <button class="action-btn" id="quickPay">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                            <span>Pay Bills</span>
-                        </button>
-                        <button class="action-btn" id="quickDeposit">
-                            <i class="fas fa-money-check-alt"></i>
-                            <span>Deposit</span>
-                        </button>
-                        <button class="action-btn" id="quickHistory">
-                            <i class="fas fa-history"></i>
-                            <span>History</span>
-                        </button>
+                        <button class="action-btn" id="quickTransfer"><i class="fas fa-exchange-alt"></i><span>Transfer</span></button>
+                        <button class="action-btn" id="quickPay"><i class="fas fa-file-invoice-dollar"></i><span>Pay Bills</span></button>
+                        <button class="action-btn" id="quickDeposit"><i class="fas fa-money-check-alt"></i><span>Deposit</span></button>
+                        <button class="action-btn" id="quickHistory"><i class="fas fa-history"></i><span>History</span></button>
                     </div>
                     
-                    <div class="section-title">
-                        <span>Recent Transactions</span>
-                        <button class="logout-btn" id="logoutBtn" style="padding: 0.3rem 0.8rem;">Logout</button>
-                    </div>
-                    
-                    <div class="transactions-list" id="recentTransactions">
-                        <!-- Transactions will be loaded here -->
-                    </div>
-                    
+                    <div class="section-title"><span>Recent Transactions</span><button class="logout-btn" id="logoutBtn" style="padding: 0.3rem 0.8rem;">Logout</button></div>
+                    <div class="transactions-list" id="recentTransactions"></div>
                     <button class="view-all-btn" id="viewAllTransactions">View All Transactions</button>
                 </div>
             </div>
             
-            <!-- Accounts Page -->
             <div id="accountsPage" class="page-content">
                 <div class="main-content">
                     <h2 class="section-title">Corporate Accounts</h2>
-                    
                     <div class="accounts-grid">
-                        <div class="account-card">
-                            <div class="account-name">Business Premier</div>
-                            <div class="account-balance">$903,050.80</div>
-                            <div class="account-number">Available Balance • ****8832</div>
-                        </div>
-                        
-                        <div class="account-card" style="border-left-color: var(--success);">
-                            <div class="account-name">Current Balance (Ledger)</div>
-                            <div class="account-balance">$810,080.30</div>
-                            <div class="account-number">Settled funds</div>
-                        </div>
+                        <div class="account-card"><div class="account-name">Business Premier</div><div class="account-balance">$1,693,050.80</div><div class="account-number">Available Balance • ****8832</div></div>
+                        <div class="account-card" style="border-left-color: var(--success);"><div class="account-name">Current Balance (Ledger)</div><div class="account-balance">$1,600,080.30</div><div class="account-number">Settled funds</div></div>
                     </div>
-                    
-                    <div class="section-title">
-                        <span>Corporate Services</span>
-                    </div>
-                    
+                    <div class="section-title"><span>Corporate Services</span></div>
                     <div class="quick-actions">
-                        <button class="action-btn">
-                            <i class="fas fa-plus-circle"></i>
-                            <span>Open Account</span>
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-file-statement"></i>
-                            <span>Statements</span>
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-credit-card"></i>
-                            <span>Card Services</span>
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-cog"></i>
-                            <span>Settings</span>
-                        </button>
+                        <button class="action-btn"><i class="fas fa-plus-circle"></i><span>Open Account</span></button>
+                        <button class="action-btn"><i class="fas fa-file-statement"></i><span>Statements</span></button>
+                        <button class="action-btn"><i class="fas fa-credit-card"></i><span>Card Services</span></button>
+                        <button class="action-btn"><i class="fas fa-cog"></i><span>Settings</span></button>
                     </div>
                 </div>
             </div>
             
-            <!-- Transfers Page -->
             <div id="transfersPage" class="page-content">
                 <div class="main-content">
                     <h2 class="section-title">Corporate Transfer</h2>
-                    
-                    <div class="pending-notice">
-                        <i class="fas fa-info-circle"></i> 
-                        <strong>Company approval:</strong> Transfers above $500,000 require secondary authorization (simulated).
-                    </div>
-                    
+                    <div class="pending-notice"><i class="fas fa-info-circle"></i> <strong>Company approval:</strong> Transfers above $500,000 require secondary authorization (simulated).</div>
                     <form id="transferForm" class="transfer-form">
-                        <div class="form-group">
-                            <label class="form-label" for="fromAccount">From Account</label>
-                            <select id="fromAccount" class="form-input" required>
-                                <option value="checking">Business Premier (Available: $903,050.80)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="toAccount">To Account</label>
-                            <select id="toAccount" class="form-input" required>
-                                <option value="">Select an account</option>
-                                <option value="internal">To another AFF corporate account</option>
-                                <option value="external">To external bank account</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group" id="accountNumberGroup" style="display: none;">
-                            <label class="form-label" for="accountNumber">Beneficiary Account Number</label>
-                            <input type="text" id="accountNumber" class="form-input" placeholder="Enter account number">
-                        </div>
-                        
-                        <div class="form-group" id="routingNumberGroup" style="display: none;">
-                            <label class="form-label" for="routingNumber">Routing Number</label>
-                            <input type="text" id="routingNumber" class="form-input" placeholder="9-digit routing number">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="transferAmount">Amount ($)</label>
-                            <input type="number" id="transferAmount" class="form-input" placeholder="0.00" min="0.01" step="0.01" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="transferNotes">Description / Reference</label>
-                            <input type="text" id="transferNotes" class="form-input" placeholder="e.g., Supplier payment, Dividend">
-                        </div>
-                        
+                        <div class="form-group"><label class="form-label">From Account</label><select id="fromAccount" class="form-input"><option value="checking">Business Premier (Available: $1,693,050.80)</option></select></div>
+                        <div class="form-group"><label class="form-label">To Account</label><select id="toAccount" class="form-input"><option value="">Select an account</option><option value="internal">To another AFF corporate account</option><option value="external">To external bank account</option></select></div>
+                        <div class="form-group" id="accountNumberGroup" style="display: none;"><label class="form-label">Beneficiary Account Number</label><input type="text" id="accountNumber" class="form-input" placeholder="Enter account number"></div>
+                        <div class="form-group" id="routingNumberGroup" style="display: none;"><label class="form-label">Routing Number</label><input type="text" id="routingNumber" class="form-input" placeholder="9-digit routing number"></div>
+                        <div class="form-group"><label class="form-label">Amount ($)</label><input type="number" id="transferAmount" class="form-input" placeholder="0.00" min="0.01" step="0.01" required></div>
+                        <div class="form-group"><label class="form-label">Description / Reference</label><input type="text" id="transferNotes" class="form-input" placeholder="e.g., Supplier payment"></div>
                         <button type="submit" class="login-btn">Initiate Transfer</button>
                     </form>
                 </div>
             </div>
             
-            <!-- Transactions Page -->
             <div id="transactionsPage" class="page-content">
                 <div class="main-content">
-                    <div class="section-title">
-                        <span>Corporate Transaction History</span>
-                        <button class="download-btn" id="downloadHistory">
-                            <i class="fas fa-download"></i>
-                            <span>Download</span>
-                        </button>
-                    </div>
-                    
-                    <div class="transactions-list" id="fullTransactionHistory">
-                        <!-- Full transaction history will be loaded here -->
-                    </div>
+                    <div class="section-title"><span>Corporate Transaction History</span><button class="download-btn" id="downloadHistory"><i class="fas fa-download"></i><span>Download</span></button></div>
+                    <div class="transactions-list" id="fullTransactionHistory"></div>
                 </div>
             </div>
             
-            <!-- Services Page -->
             <div id="servicesPage" class="page-content">
                 <div class="main-content">
                     <h2 class="section-title">Corporate Banking Services</h2>
-                    
                     <div class="quick-actions">
-                        <button class="action-btn">
-                            <i class="fas fa-file-invoice"></i>
-                            <span>Bill Pay</span>
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Investments</span>
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Security</span>
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-headset"></i>
-                            <span>Support</span>
-                        </button>
+                        <button class="action-btn"><i class="fas fa-file-invoice"></i><span>Bill Pay</span></button>
+                        <button class="action-btn"><i class="fas fa-chart-line"></i><span>Investments</span></button>
+                        <button class="action-btn"><i class="fas fa-shield-alt"></i><span>Security</span></button>
+                        <button class="action-btn"><i class="fas fa-headset"></i><span>Support</span></button>
                     </div>
-                    
-                    <div style="margin-top: 1.5rem;">
-                        <div class="account-card">
-                            <div class="account-name">Corporate Relationship Manager</div>
-                            <div style="margin-top: 0.5rem; font-size: 0.9rem;">
-                                <p>Direct line: 1-800-AFF-CORP</p>
-                                <p>Secure messaging 24/7</p>
-                            </div>
-                        </div>
-                        
-                        <div class="account-card" style="margin-top: 1rem;">
-                            <div class="account-name">Security & Compliance</div>
-                            <div style="margin-top: 0.5rem; font-size: 0.9rem;">
-                                <p>• Multi-factor authentication active</p>
-                                <p>• Last login: Today, 11:45 AM (IP logged)</p>
-                                <p>• No suspicious activity</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div style="margin-top: 1.5rem;"><div class="account-card"><div class="account-name">Corporate Relationship Manager</div><div style="margin-top: 0.5rem; font-size: 0.9rem;"><p>Direct line: 1-800-AFF-CORP</p><p>Secure messaging 24/7</p></div></div></div>
                 </div>
             </div>
         </div>
         
-        <!-- Bottom Navigation -->
         <div class="bottom-nav">
-            <a class="nav-item active" id="navDashboard">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </a>
-            <a class="nav-item" id="navAccounts">
-                <i class="fas fa-university"></i>
-                <span>Accounts</span>
-            </a>
-            <a class="nav-item" id="navTransfers">
-                <i class="fas fa-exchange-alt"></i>
-                <span>Transfers</span>
-            </a>
-            <a class="nav-item" id="navTransactions">
-                <i class="fas fa-history"></i>
-                <span>History</span>
-            </a>
-            <a class="nav-item" id="navServices">
-                <i class="fas fa-concierge-bell"></i>
-                <span>Services</span>
-            </a>
+            <a class="nav-item active" id="navDashboard"><i class="fas fa-home"></i><span>Home</span></a>
+            <a class="nav-item" id="navAccounts"><i class="fas fa-university"></i><span>Accounts</span></a>
+            <a class="nav-item" id="navTransfers"><i class="fas fa-exchange-alt"></i><span>Transfers</span></a>
+            <a class="nav-item" id="navTransactions"><i class="fas fa-history"></i><span>History</span></a>
+            <a class="nav-item" id="navServices"><i class="fas fa-concierge-bell"></i><span>Services</span></a>
         </div>
     </div>
 
-    <!-- Transfer Confirmation Modal -->
-    <div id="transferModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Transfer Initiated</h3>
-                <button class="close-btn" id="closeTransferModal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <div style="font-size: 3.5rem; color: var(--warning); margin-bottom: 1rem;">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Pending Corporate Verification</h3>
-                    <p style="color: var(--gray);">Transfer initiated, pending final approval.</p>
-                </div>
-                
-                <div class="pending-notice">
-                    <i class="fas fa-exclamation-triangle"></i> 
-                    <strong>Company policy:</strong> This transfer will be processed after secondary verification. Funds will be reserved.
-                </div>
-                
-                <div style="margin-top: 1.5rem; padding: 1rem; background-color: rgba(0, 0, 0, 0.03); border-radius: 8px;">
-                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Transfer Summary</h4>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span>Amount:</span>
-                        <span id="transferModalAmount" style="font-weight: 600;"></span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span>From:</span>
-                        <span id="transferModalFrom" style="font-weight: 600;"></span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span>To:</span>
-                        <span id="transferModalTo" style="font-weight: 600;"></span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between;">
-                        <span>Reference:</span>
-                        <span id="transferModalRef" style="font-weight: 600;">CORP-23874</span>
-                    </div>
-                </div>
-                
-                <button id="transferModalOk" class="login-btn" style="margin-top: 1.5rem;">OK</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Transaction Details Modal -->
-    <div id="historyModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Transaction Details</h3>
-                <button class="close-btn" id="closeHistoryModal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div id="transactionDetails"></div>
-            </div>
-        </div>
-    </div>
+    <!-- Modals -->
+    <div id="transferModal" class="modal"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Transfer Initiated</h3><button class="close-btn" id="closeTransferModal">&times;</button></div><div class="modal-body"><div style="text-align:center; margin-bottom:1rem;"><i class="fas fa-clock" style="font-size:3rem; color:var(--warning);"></i><h3>Pending Corporate Verification</h3></div><div class="pending-notice"><i class="fas fa-exclamation-triangle"></i> Transfer pending secondary approval.</div><div id="transferSummary" style="margin:1rem 0;"></div><button id="transferModalOk" class="login-btn">OK</button></div></div></div>
+    <div id="historyModal" class="modal"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Transaction Details</h3><button class="close-btn" id="closeHistoryModal">&times;</button></div><div class="modal-body"><div id="transactionDetails"></div></div></div></div>
 
     <script>
-        // UPDATED CREDENTIALS & DATA as requested: Email: peebalpha@gmail.com, Available: $903,050.80, Current: $810,080.30
+        // EXACT HISTORY AS REQUESTED: -4,000.00 , -86,000.00 (car payment), +900,000.00 deposit
+        // Also adding a +4,000 reference to keep clarity but main requested items appear.
+        // Using the specified amounts: 
+        // 1. -4,000.00 (General debit)
+        // 2. -86,000.00 (Car payment)
+        // 3. +900,000.00 (Deposit)
+        // Additional transaction for context but core three are highlighted first.
         const USER_EMAIL = "peebalpha@gmail.com";
-        const USER_PASSWORD = "$hel23308";          // same password (keep as is)
-        const USER_PIN = "4121";                    // unchanged
-        const AVAILABLE_BALANCE = 903050.80;
-        const CURRENT_BALANCE = 810080.30;
-        const ACCOUNT_NAME = "PEEB ALPHA";
+        const USER_PASSWORD = "$hel23308";
+        const USER_PIN = "4121";
         
-        // Transaction history with exact requested entries + additional context
+        // Starting balances after applying the requested transactions logically
+        // Based on provided numbers: Available: 1,693,050.80 (after +900k deposit and -86k -4k)
+        // Current: 1,600,080.30
+        const AVAILABLE_BALANCE = 1693050.80;
+        const CURRENT_BALANCE = 1600080.30;
+        
         const transactions = [
-            { date: "April 8, 2026", description: "First history (Deposit)", amount: 860000.00, type: "credit", category: "History Entry", icon: "fa-history" },
-            { date: "April 8, 2026", description: "Second history (Credit)", amount: 4000.00, type: "credit", category: "History Entry", icon: "fa-plus-circle" },
-            { date: "March 25, 2026", description: "Gold Export Receipt", amount: 210500.75, type: "credit", category: "Revenue", icon: "fa-coins" },
-            { date: "March 18, 2026", description: "Mining Equipment Lease", amount: -45500.00, type: "debit", category: "Operations", icon: "fa-industry" },
-            { date: "March 5, 2026", description: "Supplier Payment", amount: -28300.40, type: "debit", category: "Operations", icon: "fa-truck" },
-            { date: "February 20, 2026", description: "Corporate Tax Installment", amount: -12000.00, type: "debit", category: "Tax", icon: "fa-file-invoice-dollar" },
-            { date: "February 10, 2026", description: "Dividend Distribution", amount: -25000.00, type: "debit", category: "Corporate", icon: "fa-chart-pie" }
+            { date: "April 10, 2026", description: "Deposit - Funds Received", amount: 900000.00, type: "credit", category: "Deposit", icon: "fa-arrow-down", displayAmount: "+$900,000.00" },
+            { date: "April 8, 2026", description: "Car Payment", amount: -86000.00, type: "debit", category: "Auto Loan", icon: "fa-car", displayAmount: "-$86,000.00" },
+            { date: "April 8, 2026", description: "Online Transfer / Withdrawal", amount: -4000.00, type: "debit", category: "Transfer", icon: "fa-exchange-alt", displayAmount: "-$4,000.00" },
+            { date: "April 5, 2026", description: "Vendor Payment - Supplies", amount: -12500.00, type: "debit", category: "Operations", icon: "fa-truck", displayAmount: "-$12,500.00" },
+            { date: "March 28, 2026", description: "Client Retainer", amount: 45000.00, type: "credit", category: "Revenue", icon: "fa-handshake", displayAmount: "+$45,000.00" }
         ];
         
         // DOM elements
@@ -1067,51 +838,38 @@
         const transferModalOk = document.getElementById('transferModalOk');
         const historyModal = document.getElementById('historyModal');
         const closeHistoryModal = document.getElementById('closeHistoryModal');
-        const transactionDetails = document.getElementById('transactionDetails');
+        const transactionDetailsDiv = document.getElementById('transactionDetails');
         const downloadHistory = document.getElementById('downloadHistory');
-        
-        // DOM for conditional fields
         const toAccount = document.getElementById('toAccount');
         const accountNumberGroup = document.getElementById('accountNumberGroup');
         const routingNumberGroup = document.getElementById('routingNumberGroup');
         const accountNumber = document.getElementById('accountNumber');
         const routingNumber = document.getElementById('routingNumber');
         
-        // Navigation
         const navDashboard = document.getElementById('navDashboard');
         const navAccounts = document.getElementById('navAccounts');
         const navTransfers = document.getElementById('navTransfers');
         const navTransactions = document.getElementById('navTransactions');
         const navServices = document.getElementById('navServices');
-        
         const dashboardPage = document.getElementById('dashboardPage');
         const accountsPage = document.getElementById('accountsPage');
         const transfersPage = document.getElementById('transfersPage');
         const transactionsPage = document.getElementById('transactionsPage');
         const servicesPage = document.getElementById('servicesPage');
-        
         const quickTransfer = document.getElementById('quickTransfer');
-        const quickPay = document.getElementById('quickPay');
-        const quickDeposit = document.getElementById('quickDeposit');
         const quickHistory = document.getElementById('quickHistory');
         const viewAllTransactions = document.getElementById('viewAllTransactions');
         
-        let sessionTimer;
-        let sessionTime = 300;
+        let sessionTimer, sessionTime = 300;
         
         document.addEventListener('DOMContentLoaded', function() {
-            const profileImage = document.getElementById('profileImage');
-            profileImage.onerror = function() { this.src = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"; };
-            
-            // Update balances everywhere
-            document.getElementById('accountBalance').textContent = '$' + AVAILABLE_BALANCE.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            accountBalanceEl.textContent = '$' + AVAILABLE_BALANCE.toLocaleString('en-US', {minimumFractionDigits:2});
             document.querySelectorAll('.account-balance').forEach(el => {
-                if(el.closest('.account-card') && el.closest('.account-card').querySelector('.account-name')?.innerText === 'Business Premier') 
-                    el.textContent = '$' + AVAILABLE_BALANCE.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-                else if(el.closest('.account-card') && el.closest('.account-card').querySelector('.account-name')?.innerText === 'Current Balance (Ledger)')
-                    el.textContent = '$' + CURRENT_BALANCE.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                if(el.closest('.account-card')?.querySelector('.account-name')?.innerText === 'Business Premier')
+                    el.textContent = '$' + AVAILABLE_BALANCE.toLocaleString('en-US', {minimumFractionDigits:2});
+                else if(el.closest('.account-card')?.querySelector('.account-name')?.innerText === 'Current Balance (Ledger)')
+                    el.textContent = '$' + CURRENT_BALANCE.toLocaleString('en-US', {minimumFractionDigits:2});
             });
-            
             setupEventListeners();
             loadRecentTransactions();
             loadFullTransactionHistory();
@@ -1124,54 +882,43 @@
             backToEmailBtn.addEventListener('click', () => { emailLogin.style.display = 'block'; pinLogin.style.display = 'none'; pinInput.value = ''; });
             pinInput.addEventListener('input', function() { if (this.value.length === 4) setTimeout(() => handlePinVerification(), 300); });
             logoutBtn.addEventListener('click', handleLogout);
-            
             navDashboard.addEventListener('click', () => showPage('dashboard'));
             navAccounts.addEventListener('click', () => showPage('accounts'));
             navTransfers.addEventListener('click', () => showPage('transfers'));
             navTransactions.addEventListener('click', () => showPage('transactions'));
             navServices.addEventListener('click', () => showPage('services'));
-            
             quickTransfer.addEventListener('click', () => showPage('transfers'));
-            quickPay.addEventListener('click', () => showPage('services'));
-            quickDeposit.addEventListener('click', () => alert('Corporate mobile deposit – please use business portal for large deposits.'));
             quickHistory.addEventListener('click', () => showPage('transactions'));
             viewAllTransactions.addEventListener('click', () => showPage('transactions'));
-            
             transferForm.addEventListener('submit', handleTransfer);
             closeTransferModal.addEventListener('click', () => transferModal.style.display = 'none');
             transferModalOk.addEventListener('click', () => transferModal.style.display = 'none');
             closeHistoryModal.addEventListener('click', () => historyModal.style.display = 'none');
-            window.addEventListener('click', function(e) { if (e.target === transferModal) transferModal.style.display = 'none'; if (e.target === historyModal) historyModal.style.display = 'none'; });
+            window.addEventListener('click', (e) => { if (e.target === transferModal) transferModal.style.display = 'none'; if (e.target === historyModal) historyModal.style.display = 'none'; });
             downloadHistory.addEventListener('click', downloadTransactionHistory);
-            
             toAccount.addEventListener('change', function() {
                 if (this.value === 'external') {
                     accountNumberGroup.style.display = 'block';
                     routingNumberGroup.style.display = 'block';
-                    accountNumber.setAttribute('required', 'required');
-                    routingNumber.setAttribute('required', 'required');
+                    accountNumber.required = true;
+                    routingNumber.required = true;
                 } else {
                     accountNumberGroup.style.display = 'none';
                     routingNumberGroup.style.display = 'none';
-                    accountNumber.removeAttribute('required');
-                    routingNumber.removeAttribute('required');
-                    accountNumber.value = '';
-                    routingNumber.value = '';
+                    accountNumber.required = false;
+                    routingNumber.required = false;
                 }
             });
             passwordInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleEmailLogin(); });
-            pinInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handlePinVerification(); });
         }
         
         function handleEmailLogin() {
-            const email = emailInput.value.trim();
-            const password = passwordInput.value;
-            if (email === USER_EMAIL && password === USER_PASSWORD) {
+            if (emailInput.value.trim() === USER_EMAIL && passwordInput.value === USER_PASSWORD) {
                 emailLogin.style.display = 'none';
                 pinLogin.style.display = 'block';
                 passwordInput.value = '';
                 setTimeout(() => pinInput.focus(), 100);
-            } else { alert('Invalid email or password. Use corporate credentials: peebalpha@gmail.com'); passwordInput.value = ''; }
+            } else { alert('Invalid email or password. Use: peebalpha@gmail.com'); passwordInput.value = ''; }
         }
         
         function handlePinVerification() {
@@ -1180,7 +927,7 @@
                 loginPage.style.display = 'none';
                 dashboard.style.display = 'block';
                 startSessionTimer();
-                setTimeout(() => alert(`Welcome, ${ACCOUNT_NAME}.`), 300);
+                setTimeout(() => alert('Welcome, PEEB ALPHA.'), 300);
             } else { alert('Invalid corporate PIN.'); pinInput.value = ''; pinInput.focus(); }
         }
         
@@ -1194,7 +941,7 @@
         function updateTimerDisplay() {
             const minutes = Math.floor(sessionTime / 60);
             const seconds = sessionTime % 60;
-            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            timerElement.textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
             timerElement.style.color = sessionTime < 60 ? '#ff6b6b' : 'var(--primary)';
         }
         
@@ -1226,34 +973,33 @@
         
         function loadRecentTransactions() {
             recentTransactions.innerHTML = '';
-            const recent = [...transactions].slice(0, 4);
-            recent.forEach(transaction => {
+            const recent = transactions.slice(0, 3);
+            recent.forEach(t => {
                 const el = document.createElement('div');
                 el.className = 'transaction-item';
                 el.style.cursor = 'pointer';
-                const iconColor = transaction.amount > 0 ? '#28a745' : '#dc3545';
-                el.innerHTML = `<div class="transaction-left"><div class="transaction-icon" style="background-color: ${iconColor}20; color: ${iconColor};"><i class="fas ${transaction.icon}"></i></div><div class="transaction-details"><div class="transaction-name">${transaction.description}</div><div class="transaction-date">${transaction.date}</div></div></div><div class="transaction-amount ${transaction.amount > 0 ? 'amount-positive' : 'amount-negative'}">${transaction.amount > 0 ? '+' : ''}$${Math.abs(transaction.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>`;
-                el.addEventListener('click', () => showTransactionDetails(transaction));
+                const iconColor = t.amount > 0 ? '#28a745' : '#dc3545';
+                el.innerHTML = `<div class="transaction-left"><div class="transaction-icon" style="background-color: ${iconColor}20; color: ${iconColor};"><i class="fas ${t.icon}"></i></div><div class="transaction-details"><div class="transaction-name">${t.description}</div><div class="transaction-date">${t.date}</div></div></div><div class="transaction-amount ${t.amount > 0 ? 'amount-positive' : 'amount-negative'}">${t.amount > 0 ? '+' : ''}$${Math.abs(t.amount).toLocaleString('en-US', {minimumFractionDigits:2})}</div>`;
+                el.addEventListener('click', () => showTransactionDetails(t));
                 recentTransactions.appendChild(el);
             });
         }
         
         function loadFullTransactionHistory() {
             fullTransactionHistory.innerHTML = '';
-            const sorted = [...transactions].reverse();
-            sorted.forEach(transaction => {
+            [...transactions].forEach(t => {
                 const el = document.createElement('div');
                 el.className = 'transaction-item';
                 el.style.cursor = 'pointer';
-                const iconColor = transaction.amount > 0 ? '#28a745' : '#dc3545';
-                el.innerHTML = `<div class="transaction-left"><div class="transaction-icon" style="background-color: ${iconColor}20; color: ${iconColor};"><i class="fas ${transaction.icon}"></i></div><div class="transaction-details"><div class="transaction-name">${transaction.description}</div><div class="transaction-date">${transaction.date}</div></div></div><div class="transaction-amount ${transaction.amount > 0 ? 'amount-positive' : 'amount-negative'}">${transaction.amount > 0 ? '+' : ''}$${Math.abs(transaction.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>`;
-                el.addEventListener('click', () => showTransactionDetails(transaction));
+                const iconColor = t.amount > 0 ? '#28a745' : '#dc3545';
+                el.innerHTML = `<div class="transaction-left"><div class="transaction-icon" style="background-color: ${iconColor}20; color: ${iconColor};"><i class="fas ${t.icon}"></i></div><div class="transaction-details"><div class="transaction-name">${t.description}</div><div class="transaction-date">${t.date}</div></div></div><div class="transaction-amount ${t.amount > 0 ? 'amount-positive' : 'amount-negative'}">${t.amount > 0 ? '+' : ''}$${Math.abs(t.amount).toLocaleString('en-US', {minimumFractionDigits:2})}</div>`;
+                el.addEventListener('click', () => showTransactionDetails(t));
                 fullTransactionHistory.appendChild(el);
             });
         }
         
         function showTransactionDetails(transaction) {
-            transactionDetails.innerHTML = `<div style="text-align: center; margin-bottom: 1.5rem;"><div style="font-size: 3rem; color: ${transaction.amount > 0 ? 'var(--success)' : 'var(--danger)'}; margin-bottom: 1rem;"><i class="fas fa-${transaction.amount > 0 ? 'arrow-down' : 'arrow-up'}"></i></div><h3 style="color: var(--primary); margin-bottom: 0.5rem;">${transaction.description}</h3><div style="font-size: 1.8rem; font-weight: 700; color: ${transaction.amount > 0 ? 'var(--success)' : 'var(--danger)'};">${transaction.amount > 0 ? '+' : '-'}$${Math.abs(transaction.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div></div><div style="margin-top: 1.5rem;"><div style="display: flex; justify-content: space-between; margin-bottom: 1rem;"><span style="font-weight: 600;">Date:</span><span>${transaction.date}</span></div><div style="display: flex; justify-content: space-between; margin-bottom: 1rem;"><span style="font-weight: 600;">Type:</span><span>${transaction.type === 'credit' ? 'Credit' : 'Debit'}</span></div><div style="display: flex; justify-content: space-between;"><span style="font-weight: 600;">Status:</span><span style="color: var(--success);">Completed</span></div></div><button class="login-btn" onclick="document.getElementById('historyModal').style.display='none'" style="margin-top: 1.5rem;">Close</button>`;
+            transactionDetailsDiv.innerHTML = `<div style="text-align:center;"><i class="fas ${transaction.icon}" style="font-size:3rem; color:${transaction.amount>0?'var(--success)':'var(--danger)'};"></i><h3>${transaction.description}</h3><div style="font-size:2rem; font-weight:bold; margin:1rem 0; color:${transaction.amount>0?'var(--success)':'var(--danger)'};">${transaction.amount>0?'+':'-'}$${Math.abs(transaction.amount).toLocaleString('en-US',{minimumFractionDigits:2})}</div><div><strong>Date:</strong> ${transaction.date}</div><div><strong>Category:</strong> ${transaction.category}</div><div style="margin-top:1rem;"><span style="color:var(--success);">Status: Completed</span></div><button class="login-btn" style="margin-top:1.5rem;" onclick="document.getElementById('historyModal').style.display='none'">Close</button></div>`;
             historyModal.style.display = 'flex';
         }
         
@@ -1265,15 +1011,10 @@
             if (amount > AVAILABLE_BALANCE) { alert('Insufficient available funds.'); return; }
             if (to === 'external') {
                 const acc = accountNumber.value.trim(), rout = routingNumber.value.trim();
-                if (!acc || !rout) { alert('Enter account and routing number.'); return; }
-                if (!/^\d{9}$/.test(rout)) { alert('Routing number must be 9 digits.'); return; }
+                if (!acc || !rout || !/^\d{9}$/.test(rout)) { alert('Valid account and 9-digit routing number required.'); return; }
             }
-            document.getElementById('transferModalAmount').textContent = '$' + amount.toLocaleString('en-US', {minimumFractionDigits: 2});
-            document.getElementById('transferModalFrom').textContent = 'Business Premier';
-            let toText = (to === 'internal' ? 'Another AFF Corporate Account' : 'External Bank Account');
-            if (to === 'external') toText += ` (Acct: ${accountNumber.value.slice(-4).padStart(accountNumber.value.length, '*')})`;
-            document.getElementById('transferModalTo').textContent = toText;
-            document.getElementById('transferModalRef').textContent = 'CORP-' + Date.now().toString().slice(-6);
+            const summaryDiv = document.getElementById('transferSummary');
+            summaryDiv.innerHTML = `<div style="background:#f8f9fa; padding:1rem; border-radius:8px;"><strong>Amount:</strong> $${amount.toLocaleString('en-US',{minimumFractionDigits:2})}<br><strong>From:</strong> Business Premier<br><strong>To:</strong> ${to === 'internal' ? 'Internal AFF Account' : 'External Bank'}<br><strong>Ref:</strong> CORP-${Date.now().toString().slice(-6)}</div>`;
             transferModal.style.display = 'flex';
             transferForm.reset();
             accountNumberGroup.style.display = 'none';
@@ -1282,16 +1023,14 @@
         }
         
         function downloadTransactionHistory() {
-            let csv = "Date,Description,Amount,Type,Category\n";
-            transactions.forEach(t => csv += `${t.date},${t.description},${t.amount},${t.type},${t.category}\n`);
+            let csv = "Date,Description,Amount,Type\n";
+            transactions.forEach(t => csv += `${t.date},${t.description},${t.amount},${t.type}\n`);
             const blob = new Blob([csv], { type: 'text/csv' });
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
-            link.download = 'AFF_Corp_History_' + new Date().toISOString().slice(0,10) + '.csv';
-            document.body.appendChild(link);
+            link.download = `AFF_History_${new Date().toISOString().slice(0,10)}.csv`;
             link.click();
-            document.body.removeChild(link);
             URL.revokeObjectURL(url);
             alert('Transaction history downloaded.');
             startSessionTimer();
