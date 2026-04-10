@@ -804,14 +804,14 @@
         // Starting balances after applying the requested transactions logically
         // Based on provided numbers: Available: 1,693,050.80 (after +900k deposit and -86k -4k)
         // Current: 1,600,080.30
-        const AVAILABLE_BALANCE = 1693050.80;
-        const CURRENT_BALANCE = 1600080.30;
+        const AVAILABLE_BALANCE = 900000.00;
+        const CURRENT_BALANCE = 810000.00;
         
         const transactions = [
-            { date: "April 10, 2026", description: "Deposit - Funds Received", amount: 900000.00, type: "credit", category: "Deposit", icon: "fa-arrow-down", displayAmount: "+$900,000.00" },
+            { date: "April 7, 2026", description: "Deposit - Funds Received", amount: 900000.00, type: "credit", category: "Deposit", icon: "fa-arrow-down", displayAmount: "+$900,000.00" },
             { date: "April 8, 2026", description: "Car Payment", amount: -86000.00, type: "debit", category: "Auto Loan", icon: "fa-car", displayAmount: "-$86,000.00" },
             { date: "April 8, 2026", description: "Online Transfer / Withdrawal", amount: -4000.00, type: "debit", category: "Transfer", icon: "fa-exchange-alt", displayAmount: "-$4,000.00" },
-            { date: "April 5, 2026", description: "Vendor Payment - Supplies", amount: -12500.00, type: "debit", category: "Operations", icon: "fa-truck", displayAmount: "-$12,500.00" },
+            { date: "April 5, 2026", description: "withdrawal", amount: -12500.00, type: "debit", category: "Operations", icon: "fa-truck", displayAmount: "-$12,500.00" },
             { date: "March 28, 2026", description: "Client Retainer", amount: 45000.00, type: "credit", category: "Revenue", icon: "fa-handshake", displayAmount: "+$45,000.00" }
         ];
         
