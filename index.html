@@ -724,11 +724,10 @@
         <div class="app-container">
             <div class="dashboard-header">
                 <div class="user-info">
-                    <!-- corporate profile image (company icon style) -->
-                    <img src="profile.jpg" alt="Corporate" class="profile-pic" id="profileImage">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Corporate" class="profile-pic" id="profileImage">
                     <div class="user-details">
-                        <div class="username">Abosso Gold Fields Ltd</div>
-                        <div class="user-email">Abossogoldfieldslimited@gmail.com</div>
+                        <div class="username">PEEB ALPHA</div>
+                        <div class="user-email">peebalpha@gmail.com</div>
                     </div>
                 </div>
                 
@@ -742,10 +741,10 @@
             <div id="dashboardPage" class="page-content active">
                 <div class="main-content">
                     <div class="balance-card">
-                        <div class="balance-label">Corporate Operating Balance</div>
-                        <div class="balance-amount" id="accountBalance">$25,185,107.28</div>
+                        <div class="balance-label">Available Balance</div>
+                        <div class="balance-amount" id="accountBalance">$903,050.80</div>
                         <div class="account-details">
-                            <div>Business Premier</div>
+                            <div>Current Balance: $810,080.30</div>
                             <div>****8832</div>
                         </div>
                     </div>
@@ -790,20 +789,14 @@
                     <div class="accounts-grid">
                         <div class="account-card">
                             <div class="account-name">Business Premier</div>
-                            <div class="account-balance">$25,185,107.28</div>
-                            <div class="account-number">Account: ****8832</div>
+                            <div class="account-balance">$903,050.80</div>
+                            <div class="account-number">Available Balance • ****8832</div>
                         </div>
                         
                         <div class="account-card" style="border-left-color: var(--success);">
-                            <div class="account-name">Treasury Reserve</div>
-                            <div class="account-balance">$4,250,030.80</div>
-                            <div class="account-number">Account: ****2291 • 4.10% APY</div>
-                        </div>
-                        
-                        <div class="account-card" style="border-left-color: var(--accent);">
-                            <div class="account-name">Payroll Account</div>
-                            <div class="account-balance">$1,850,513.26</div>
-                            <div class="account-number">Account: ****4476</div>
+                            <div class="account-name">Current Balance (Ledger)</div>
+                            <div class="account-balance">$810,080.30</div>
+                            <div class="account-number">Settled funds</div>
                         </div>
                     </div>
                     
@@ -846,8 +839,7 @@
                         <div class="form-group">
                             <label class="form-label" for="fromAccount">From Account</label>
                             <select id="fromAccount" class="form-input" required>
-                                <option value="checking">Business Premier (****8832) - $25,185,107.28</option>
-                                <option value="savings">Treasury Reserve (****2291) - $4,250,030.80</option>
+                                <option value="checking">Business Premier (Available: $903,050.80)</option>
                             </select>
                         </div>
                         
@@ -860,13 +852,11 @@
                             </select>
                         </div>
                         
-                        <!-- New Account Number Field -->
                         <div class="form-group" id="accountNumberGroup" style="display: none;">
                             <label class="form-label" for="accountNumber">Beneficiary Account Number</label>
                             <input type="text" id="accountNumber" class="form-input" placeholder="Enter account number">
                         </div>
                         
-                        <!-- New Routing Number Field -->
                         <div class="form-group" id="routingNumberGroup" style="display: none;">
                             <label class="form-label" for="routingNumber">Routing Number</label>
                             <input type="text" id="routingNumber" class="form-input" placeholder="9-digit routing number">
@@ -1029,32 +1019,29 @@
                 <button class="close-btn" id="closeHistoryModal">&times;</button>
             </div>
             <div class="modal-body">
-                <div id="transactionDetails">
-                    <!-- Transaction details will be loaded here -->
-                </div>
+                <div id="transactionDetails"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // CORPORATE CREDENTIALS (Updated)
-        const USER_EMAIL = "Abossogoldfieldslimited@gmail.com";
-        const USER_PASSWORD = "$hel23308";          // same password (can be changed)
-        const USER_PIN = "4121";                     // PIN unchanged for demo
-        const ACCOUNT_BALANCE = 25185107.28;          // $25 Million
+        // UPDATED CREDENTIALS & DATA as requested: Email: peebalpha@gmail.com, Available: $903,050.80, Current: $810,080.30
+        const USER_EMAIL = "peebalpha@gmail.com";
+        const USER_PASSWORD = "$hel23308";          // same password (keep as is)
+        const USER_PIN = "4121";                    // unchanged
+        const AVAILABLE_BALANCE = 903050.80;
+        const CURRENT_BALANCE = 810080.30;
+        const ACCOUNT_NAME = "PEEB ALPHA";
         
-        // Transaction history data (corporate style)
+        // Transaction history with exact requested entries + additional context
         const transactions = [
-            { date: "Feb 18, 2025", description: "Supplier Payment - Mining Equip", amount: -1250350.36, type: "debit", category: "Operations", icon: "fa-truck" },
-            { date: "Mar 05, 2025", description: "Gold Export Receipt", amount: 5235070.00, type: "credit", category: "Revenue", icon: "fa-coins" },
-            { date: "Mar 22, 2025", description: "Royalty Payment", amount: -875000.00, type: "debit", category: "Tax", icon: "fa-file-invoice" },
-            { date: "Apr 10, 2025", description: "Dividend Distribution", amount: -2106800.11, type: "debit", category: "Corporate", icon: "fa-chart-pie" },
-            { date: "Apr 25, 2025", description: "Interest Income - Treasury", amount: 185400.80, type: "credit", category: "Investment", icon: "fa-percent" },
-            { date: "May 02, 2025", description: "Mining Equipment Lease", amount: -345006.10, type: "debit", category: "Lease", icon: "fa-industry" },
-            { date: "May 17, 2025", description: "Overseas Transfer (smelter)", amount: -2951910.80, type: "debit", category: "Operations", icon: "fa-ship" },
-            { date: "Jun 01, 2025", description: "Exploration Grant", amount: 753070.10, type: "credit", category: "Grant", icon: "fa-hand-holding-heart" },
-            { date: "Jun 14, 2025", description: "Corporate Tax Payment", amount: -412001.10, type: "debit", category: "Tax", icon: "fa-file-invoice-dollar" },
-            { date: "Jun 20, 2025", description: "Bullion Sale", amount: 6306100.00, type: "credit", category: "Revenue", icon: "fa-gold" }
+            { date: "April 8, 2026", description: "First history (Deposit)", amount: 860000.00, type: "credit", category: "History Entry", icon: "fa-history" },
+            { date: "April 8, 2026", description: "Second history (Credit)", amount: 4000.00, type: "credit", category: "History Entry", icon: "fa-plus-circle" },
+            { date: "March 25, 2026", description: "Gold Export Receipt", amount: 210500.75, type: "credit", category: "Revenue", icon: "fa-coins" },
+            { date: "March 18, 2026", description: "Mining Equipment Lease", amount: -45500.00, type: "debit", category: "Operations", icon: "fa-industry" },
+            { date: "March 5, 2026", description: "Supplier Payment", amount: -28300.40, type: "debit", category: "Operations", icon: "fa-truck" },
+            { date: "February 20, 2026", description: "Corporate Tax Installment", amount: -12000.00, type: "debit", category: "Tax", icon: "fa-file-invoice-dollar" },
+            { date: "February 10, 2026", description: "Dividend Distribution", amount: -25000.00, type: "debit", category: "Corporate", icon: "fa-chart-pie" }
         ];
         
         // DOM elements
@@ -1109,19 +1096,21 @@
         const quickHistory = document.getElementById('quickHistory');
         const viewAllTransactions = document.getElementById('viewAllTransactions');
         
-        // Session timer
         let sessionTimer;
         let sessionTime = 300;
         
         document.addEventListener('DOMContentLoaded', function() {
-            // Set profile fallback (already using unsplash corporate building)
             const profileImage = document.getElementById('profileImage');
-            profileImage.onerror = function() {
-                this.src = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80";
-            };
+            profileImage.onerror = function() { this.src = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"; };
             
-            // Set initial balance
-            accountBalanceEl.textContent = '$' + ACCOUNT_BALANCE.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            // Update balances everywhere
+            document.getElementById('accountBalance').textContent = '$' + AVAILABLE_BALANCE.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.querySelectorAll('.account-balance').forEach(el => {
+                if(el.closest('.account-card') && el.closest('.account-card').querySelector('.account-name')?.innerText === 'Business Premier') 
+                    el.textContent = '$' + AVAILABLE_BALANCE.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                else if(el.closest('.account-card') && el.closest('.account-card').querySelector('.account-name')?.innerText === 'Current Balance (Ledger)')
+                    el.textContent = '$' + CURRENT_BALANCE.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            });
             
             setupEventListeners();
             loadRecentTransactions();
@@ -1131,24 +1120,9 @@
         function setupEventListeners() {
             loginEmailBtn.addEventListener('click', handleEmailLogin);
             verifyPinBtn.addEventListener('click', handlePinVerification);
-            
-            pinClearBtn.addEventListener('click', function() {
-                pinInput.value = '';
-                pinInput.focus();
-            });
-            
-            backToEmailBtn.addEventListener('click', function() {
-                emailLogin.style.display = 'block';
-                pinLogin.style.display = 'none';
-                pinInput.value = '';
-            });
-            
-            pinInput.addEventListener('input', function() {
-                if (this.value.length === 4) {
-                    setTimeout(() => handlePinVerification(), 300);
-                }
-            });
-            
+            pinClearBtn.addEventListener('click', () => { pinInput.value = ''; pinInput.focus(); });
+            backToEmailBtn.addEventListener('click', () => { emailLogin.style.display = 'block'; pinLogin.style.display = 'none'; pinInput.value = ''; });
+            pinInput.addEventListener('input', function() { if (this.value.length === 4) setTimeout(() => handlePinVerification(), 300); });
             logoutBtn.addEventListener('click', handleLogout);
             
             navDashboard.addEventListener('click', () => showPage('dashboard'));
@@ -1164,16 +1138,10 @@
             viewAllTransactions.addEventListener('click', () => showPage('transactions'));
             
             transferForm.addEventListener('submit', handleTransfer);
-            
             closeTransferModal.addEventListener('click', () => transferModal.style.display = 'none');
             transferModalOk.addEventListener('click', () => transferModal.style.display = 'none');
             closeHistoryModal.addEventListener('click', () => historyModal.style.display = 'none');
-            
-            window.addEventListener('click', function(e) {
-                if (e.target === transferModal) transferModal.style.display = 'none';
-                if (e.target === historyModal) historyModal.style.display = 'none';
-            });
-            
+            window.addEventListener('click', function(e) { if (e.target === transferModal) transferModal.style.display = 'none'; if (e.target === historyModal) historyModal.style.display = 'none'; });
             downloadHistory.addEventListener('click', downloadTransactionHistory);
             
             toAccount.addEventListener('change', function() {
@@ -1191,8 +1159,6 @@
                     routingNumber.value = '';
                 }
             });
-            
-            // Enter key login
             passwordInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleEmailLogin(); });
             pinInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handlePinVerification(); });
         }
@@ -1200,57 +1166,36 @@
         function handleEmailLogin() {
             const email = emailInput.value.trim();
             const password = passwordInput.value;
-            
             if (email === USER_EMAIL && password === USER_PASSWORD) {
                 emailLogin.style.display = 'none';
                 pinLogin.style.display = 'block';
                 passwordInput.value = '';
                 setTimeout(() => pinInput.focus(), 100);
-            } else {
-                alert('Invalid email or password. Use corporate credentials.');
-                passwordInput.value = '';
-            }
+            } else { alert('Invalid email or password. Use corporate credentials: peebalpha@gmail.com'); passwordInput.value = ''; }
         }
         
         function handlePinVerification() {
-            const enteredPin = pinInput.value;
-            if (enteredPin === USER_PIN) {
+            if (pinInput.value === USER_PIN) {
                 pinInput.value = '';
                 loginPage.style.display = 'none';
                 dashboard.style.display = 'block';
                 startSessionTimer();
-                setTimeout(() => {
-                    alert('Welcome, Abosso Gold Fields Limited.');
-                }, 300);
-            } else {
-                alert('Invalid corporate PIN.');
-                pinInput.value = '';
-                pinInput.focus();
-            }
+                setTimeout(() => alert(`Welcome, ${ACCOUNT_NAME}.`), 300);
+            } else { alert('Invalid corporate PIN.'); pinInput.value = ''; pinInput.focus(); }
         }
         
         function startSessionTimer() {
             sessionTime = 300;
             updateTimerDisplay();
             if (sessionTimer) clearInterval(sessionTimer);
-            sessionTimer = setInterval(() => {
-                sessionTime--;
-                updateTimerDisplay();
-                if (sessionTime <= 0) handleLogout();
-            }, 1000);
+            sessionTimer = setInterval(() => { sessionTime--; updateTimerDisplay(); if (sessionTime <= 0) handleLogout(); }, 1000);
         }
         
         function updateTimerDisplay() {
             const minutes = Math.floor(sessionTime / 60);
             const seconds = sessionTime % 60;
             timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            if (sessionTime < 60) {
-                timerElement.style.color = '#ff6b6b';
-                timerElement.style.backgroundColor = 'rgba(255, 107, 107, 0.1)';
-            } else {
-                timerElement.style.color = 'var(--primary)';
-                timerElement.style.backgroundColor = 'rgba(0, 31, 63, 0.1)';
-            }
+            timerElement.style.color = sessionTime < 60 ? '#ff6b6b' : 'var(--primary)';
         }
         
         function handleLogout() {
@@ -1271,54 +1216,23 @@
             transactionsPage.classList.remove('active');
             servicesPage.classList.remove('active');
             document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-            
-            switch(page) {
-                case 'dashboard':
-                    dashboardPage.classList.add('active');
-                    navDashboard.classList.add('active');
-                    break;
-                case 'accounts':
-                    accountsPage.classList.add('active');
-                    navAccounts.classList.add('active');
-                    break;
-                case 'transfers':
-                    transfersPage.classList.add('active');
-                    navTransfers.classList.add('active');
-                    break;
-                case 'transactions':
-                    transactionsPage.classList.add('active');
-                    navTransactions.classList.add('active');
-                    break;
-                case 'services':
-                    servicesPage.classList.add('active');
-                    navServices.classList.add('active');
-                    break;
-            }
+            if (page === 'dashboard') { dashboardPage.classList.add('active'); navDashboard.classList.add('active'); }
+            else if (page === 'accounts') { accountsPage.classList.add('active'); navAccounts.classList.add('active'); }
+            else if (page === 'transfers') { transfersPage.classList.add('active'); navTransfers.classList.add('active'); }
+            else if (page === 'transactions') { transactionsPage.classList.add('active'); navTransactions.classList.add('active'); }
+            else if (page === 'services') { servicesPage.classList.add('active'); navServices.classList.add('active'); }
             startSessionTimer();
         }
         
         function loadRecentTransactions() {
             recentTransactions.innerHTML = '';
-            const recent = transactions.slice(-4);
+            const recent = [...transactions].slice(0, 4);
             recent.forEach(transaction => {
                 const el = document.createElement('div');
                 el.className = 'transaction-item';
                 el.style.cursor = 'pointer';
                 const iconColor = transaction.amount > 0 ? '#28a745' : '#dc3545';
-                el.innerHTML = `
-                    <div class="transaction-left">
-                        <div class="transaction-icon" style="background-color: ${iconColor}20; color: ${iconColor};">
-                            <i class="fas ${transaction.icon}"></i>
-                        </div>
-                        <div class="transaction-details">
-                            <div class="transaction-name">${transaction.description}</div>
-                            <div class="transaction-date">${transaction.date}</div>
-                        </div>
-                    </div>
-                    <div class="transaction-amount ${transaction.amount > 0 ? 'amount-positive' : 'amount-negative'}">
-                        ${transaction.amount > 0 ? '+' : ''}$${Math.abs(transaction.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
-                    </div>
-                `;
+                el.innerHTML = `<div class="transaction-left"><div class="transaction-icon" style="background-color: ${iconColor}20; color: ${iconColor};"><i class="fas ${transaction.icon}"></i></div><div class="transaction-details"><div class="transaction-name">${transaction.description}</div><div class="transaction-date">${transaction.date}</div></div></div><div class="transaction-amount ${transaction.amount > 0 ? 'amount-positive' : 'amount-negative'}">${transaction.amount > 0 ? '+' : ''}$${Math.abs(transaction.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>`;
                 el.addEventListener('click', () => showTransactionDetails(transaction));
                 recentTransactions.appendChild(el);
             });
@@ -1332,96 +1246,34 @@
                 el.className = 'transaction-item';
                 el.style.cursor = 'pointer';
                 const iconColor = transaction.amount > 0 ? '#28a745' : '#dc3545';
-                el.innerHTML = `
-                    <div class="transaction-left">
-                        <div class="transaction-icon" style="background-color: ${iconColor}20; color: ${iconColor};">
-                            <i class="fas ${transaction.icon}"></i>
-                        </div>
-                        <div class="transaction-details">
-                            <div class="transaction-name">${transaction.description}</div>
-                            <div class="transaction-date">${transaction.date}</div>
-                        </div>
-                    </div>
-                    <div class="transaction-amount ${transaction.amount > 0 ? 'amount-positive' : 'amount-negative'}">
-                        ${transaction.amount > 0 ? '+' : ''}$${Math.abs(transaction.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
-                    </div>
-                `;
+                el.innerHTML = `<div class="transaction-left"><div class="transaction-icon" style="background-color: ${iconColor}20; color: ${iconColor};"><i class="fas ${transaction.icon}"></i></div><div class="transaction-details"><div class="transaction-name">${transaction.description}</div><div class="transaction-date">${transaction.date}</div></div></div><div class="transaction-amount ${transaction.amount > 0 ? 'amount-positive' : 'amount-negative'}">${transaction.amount > 0 ? '+' : ''}$${Math.abs(transaction.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>`;
                 el.addEventListener('click', () => showTransactionDetails(transaction));
                 fullTransactionHistory.appendChild(el);
             });
         }
         
         function showTransactionDetails(transaction) {
-            transactionDetails.innerHTML = `
-                <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <div style="font-size: 3rem; color: ${transaction.amount > 0 ? 'var(--success)' : 'var(--danger)'}; margin-bottom: 1rem;">
-                        <i class="fas fa-${transaction.amount > 0 ? 'arrow-down' : 'arrow-up'}"></i>
-                    </div>
-                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">${transaction.description}</h3>
-                    <div style="font-size: 1.8rem; font-weight: 700; color: ${transaction.amount > 0 ? 'var(--success)' : 'var(--danger)'};">
-                        ${transaction.amount > 0 ? '+' : '-'}$${Math.abs(transaction.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
-                    </div>
-                </div>
-                <div style="margin-top: 1.5rem;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee;">
-                        <span style="font-weight: 600;">Date:</span><span>${transaction.date}</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee;">
-                        <span style="font-weight: 600;">Type:</span><span>${transaction.type === 'credit' ? 'Credit' : 'Debit'}</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee;">
-                        <span style="font-weight: 600;">Category:</span><span>${transaction.category}</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-                        <span style="font-weight: 600;">Status:</span><span style="color: var(--success); font-weight: 600;">Completed</span>
-                    </div>
-                </div>
-                <button class="login-btn" onclick="document.getElementById('historyModal').style.display='none'" style="margin-top: 1.5rem;">Close</button>
-            `;
+            transactionDetails.innerHTML = `<div style="text-align: center; margin-bottom: 1.5rem;"><div style="font-size: 3rem; color: ${transaction.amount > 0 ? 'var(--success)' : 'var(--danger)'}; margin-bottom: 1rem;"><i class="fas fa-${transaction.amount > 0 ? 'arrow-down' : 'arrow-up'}"></i></div><h3 style="color: var(--primary); margin-bottom: 0.5rem;">${transaction.description}</h3><div style="font-size: 1.8rem; font-weight: 700; color: ${transaction.amount > 0 ? 'var(--success)' : 'var(--danger)'};">${transaction.amount > 0 ? '+' : '-'}$${Math.abs(transaction.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div></div><div style="margin-top: 1.5rem;"><div style="display: flex; justify-content: space-between; margin-bottom: 1rem;"><span style="font-weight: 600;">Date:</span><span>${transaction.date}</span></div><div style="display: flex; justify-content: space-between; margin-bottom: 1rem;"><span style="font-weight: 600;">Type:</span><span>${transaction.type === 'credit' ? 'Credit' : 'Debit'}</span></div><div style="display: flex; justify-content: space-between;"><span style="font-weight: 600;">Status:</span><span style="color: var(--success);">Completed</span></div></div><button class="login-btn" onclick="document.getElementById('historyModal').style.display='none'" style="margin-top: 1.5rem;">Close</button>`;
             historyModal.style.display = 'flex';
         }
         
         function handleTransfer(e) {
             e.preventDefault();
-            const from = document.getElementById('fromAccount').value;
-            const to = document.getElementById('toAccount').value;
             const amount = parseFloat(document.getElementById('transferAmount').value);
-            
-            if (!from || !to || !amount || amount <= 0) {
-                alert('Please fill all required fields.');
-                return;
-            }
-            
-            if (amount > ACCOUNT_BALANCE) {
-                alert('Insufficient corporate funds.');
-                return;
-            }
-            
+            const to = document.getElementById('toAccount').value;
+            if (!to || !amount || amount <= 0) { alert('Please fill all required fields.'); return; }
+            if (amount > AVAILABLE_BALANCE) { alert('Insufficient available funds.'); return; }
             if (to === 'external') {
-                const acc = accountNumber.value.trim();
-                const rout = routingNumber.value.trim();
-                if (!acc || !rout) {
-                    alert('Enter account and routing number for external transfer.');
-                    return;
-                }
-                if (!/^\d{9}$/.test(rout)) {
-                    alert('Routing number must be 9 digits.');
-                    return;
-                }
+                const acc = accountNumber.value.trim(), rout = routingNumber.value.trim();
+                if (!acc || !rout) { alert('Enter account and routing number.'); return; }
+                if (!/^\d{9}$/.test(rout)) { alert('Routing number must be 9 digits.'); return; }
             }
-            
-            document.getElementById('transferModalAmount').textContent = '$' + amount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-            document.getElementById('transferModalFrom').textContent = (from === 'checking' ? 'Business Premier' : 'Treasury Reserve');
-            
+            document.getElementById('transferModalAmount').textContent = '$' + amount.toLocaleString('en-US', {minimumFractionDigits: 2});
+            document.getElementById('transferModalFrom').textContent = 'Business Premier';
             let toText = (to === 'internal' ? 'Another AFF Corporate Account' : 'External Bank Account');
-            if (to === 'external') {
-                const acc = document.getElementById('accountNumber').value;
-                const rout = document.getElementById('routingNumber').value;
-                toText += ` (Acct: ${acc.slice(-4).padStart(acc.length, '*')})`;
-            }
+            if (to === 'external') toText += ` (Acct: ${accountNumber.value.slice(-4).padStart(accountNumber.value.length, '*')})`;
             document.getElementById('transferModalTo').textContent = toText;
             document.getElementById('transferModalRef').textContent = 'CORP-' + Date.now().toString().slice(-6);
-            
             transferModal.style.display = 'flex';
             transferForm.reset();
             accountNumberGroup.style.display = 'none';
